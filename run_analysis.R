@@ -2,9 +2,10 @@
 ## by David DuPre for course getdata-032
 ## Sept 25, 2015
 
-path <- "C:/Downloads/Coursera/getdata-032/CourseProject/"
-rc <- setwd(path)
-histfilename <- paste0(path,"History","_",format(Sys.time(), "%Y-%m-%d_%H-%M-%S"),".R")
+##path <- "C:/Downloads/Coursera/getdata-032/"
+##rc <- setwd(path)
+path <- getwd()
+histfilename <- paste0(path,"/History","_",format(Sys.time(), "%Y-%m-%d_%H-%M-%S"),".R")
 savehistory(histfilename)
 
 library(data.table)
@@ -97,5 +98,5 @@ sd <- cbind(sd_first3,sd_mean,sd_std)
 ## Write out the Tidy data file in CSV format.
 ## TidyFilename <- paste0(path,"TIDY_UCI_HAR_DataseWCSV","_",format(Sys.time(), "%Y-%m-%d_%H-%M-%S"),".csv")
 ## write.csv(sd,file=TidyFilename)
-TidyFilename <- paste0(path,"TIDY_UCI_HAR_Datase","_",format(Sys.time(), "%Y-%m-%d_%H-%M-%S"),".txt")
+TidyFilename <- paste0(path,"/TIDY_UCI_HAR_Datase","_",format(Sys.time(), "%Y-%m-%d_%H-%M-%S"),".txt")
 write.table(sd,file=TidyFilename,row.name=FALSE)
