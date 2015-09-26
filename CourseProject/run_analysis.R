@@ -11,6 +11,7 @@ library(data.table)
 library(sqldf)
 library(dplyr)
 library(tidyr)
+library(plyr)
 
 ###### READ IN TABLES
 
@@ -94,5 +95,7 @@ sd_std <- select(train_test,contains("std"))
 sd <- cbind(sd_first3,sd_mean,sd_std)                 
 
 ## Write out the Tidy data file in CSV format.
-TidyFilename <- paste0(path,"TIDY_UCI_HAR_Datase","_",format(Sys.time(), "%Y-%m-%d_%H-%M-%S"),".R")
-write.csv(sd,file=TidyFilename)
+## TidyFilename <- paste0(path,"TIDY_UCI_HAR_DataseWCSV","_",format(Sys.time(), "%Y-%m-%d_%H-%M-%S"),".csv")
+## write.csv(sd,file=TidyFilename)
+TidyFilename <- paste0(path,"TIDY_UCI_HAR_Datase","_",format(Sys.time(), "%Y-%m-%d_%H-%M-%S"),".txt")
+write.table(sd,file=TidyFilename,row.name=FALSE)
