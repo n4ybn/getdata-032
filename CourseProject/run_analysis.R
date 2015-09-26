@@ -40,14 +40,6 @@ rownumbers_test <- rep("Test",nrow(X_test))
 ## Create Feature numbers for Train and Learn
 feature_cols <- as.vector(features[,2])
 
-############### Not Needed #######################
-## feature_cols <- gsub(",","_",feature_cols,fixed = TRUE)
-## feature_cols <- gsub("(","_",feature_cols,fixed = TRUE)
-## feature_cols <- gsub(")","_",feature_cols,fixed = TRUE)
-## feature_cols <- gsub("-","_",feature_cols,fixed = TRUE)
-
-##colnums_test <- paste0("F_",1:ncol(X_test))
-
 ## Join rownumbers, subject and Activity into one table
 sub_actvty_train <- cbind(ID = rownumbers_train,subject = subject_train,activity = y_train)
 sub_actvty_test <- cbind(ID = rownumbers_test,subject = subject_test,activity = y_test)
@@ -55,12 +47,6 @@ sub_actvty_test <- cbind(ID = rownumbers_test,subject = subject_test,activity = 
 ## Join Feature measurments Subject,Activity
 sub_act_data <- cbind(sub_actvty_train,X_train)
 sub_act_data_test <- cbind(sub_actvty_test,X_test)
-
-## release storage for unneeded tables
-## rm(sub_actvty)
-## rm(X_train)
-## rm(y_train)
-## rm(subject_train)
 
 
 ##### ## SETUP COLUMN NAMES  ##
@@ -108,4 +94,5 @@ sd_std <- select(train_test,contains("std"))
 sd <- cbind(sd_first3,sd_mean,sd_std)                 
 
 ## Write out the Tidy data file in CSV format.
-write.csv(sd,file="TIDY_UCI_HAR_Datase.csv")
+TidyFilename <- paste0(path,"TIDY_UCI_HAR_Datase","_",format(Sys.time(), "%Y-%m-%d_%H-%M-%S"),".R")
+write.csv(sd,file=TidyFilename)
