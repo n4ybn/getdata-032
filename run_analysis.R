@@ -1,6 +1,6 @@
 ## filename: run_analysis.R
 ## by David DuPre for course getdata-032
-## Sept 25, 2015
+## Sept 26, 2015
 
 ##path <- "C:/Downloads/Coursera/getdata-032/"
 ##rc <- setwd(path)
